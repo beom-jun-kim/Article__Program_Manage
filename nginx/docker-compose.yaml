@@ -1,0 +1,15 @@
+services:
+  app:
+    image: nginx:1.24.0-alpine
+    container_name: nginx
+    network_mode: host
+    volumes:
+    - ./templates:/etc/nginx/templates
+    environment:
+      PORT: '80'
+      SERVER_NAME: '127.0.0.1'
+      MANAGE_FE_URL: 'http://localhost:3030'
+      MANAGE_BE_URL: 'http://localhost:8000'
+      SERVICE_FE_URL: 'http://localhost:3000'
+      SERVICE_BE_URL: 'http://localhost:8080'
+    restart: always

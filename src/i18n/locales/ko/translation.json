@@ -1,0 +1,215 @@
+{
+  "components": {
+    "header": {
+      "menu": {
+        "manage": "Manage",
+        "nawriter": "NAWriter",
+        "myNews": "My News",
+        "setting": "Setting"
+      },
+      "lngBtnText": "가",
+      "lngBtnTooltip": "언어 변경",
+      "themeBtnTooltip": "테마",
+      "logoutBtnTooltip": "로그아웃"
+    },
+    "grid": {
+      "noData": "조회된 데이터가 없습니다.",
+      "error": "데이터 조회 중 에러가 발생하였습니다.",
+      "save": "저장",
+      "close": "닫기",
+      "filter": "필터",
+      "reset": "필터 초기화",
+      "search": "검색"
+    },
+    "pagination": {
+      "items": "항목",
+      "of": "{{a}}건 중 {{b}}"
+    },
+    "dialog": {
+      "confirm": "확인",
+      "close": "닫기",
+      "cancel": "취소",
+      "Institution information registration":"기관 정보 등록"
+    },
+    "toast": {
+      "error": "서버 에러 발생"
+    }
+  },
+  "pages": {
+    "manage": {
+      "employee": {
+        "title": "사원 정보 조회",
+        "grid": {
+          "all": "전체",
+          "etc": "기타",
+          "empName": "사원명",
+          "empNameEn": "사원명 (영문)",
+          "empId": "사원번호",
+          "email": "이메일",
+          "phone": "전화번호",
+          "admin": "관리자",
+          "gender": "성별",
+          "birth": "생년월일",
+          "dept": "소속 부서",
+          "country": "국가",
+          "1002001": "남성",
+          "1002002": "여성"
+        },
+        "dialog": {
+          "updateEmployeeTitle": "사원 정보 수정",
+          "adminText1": "{{name}}님을 관리자로 변경하시겠습니까?",
+          "adminText2": "{{name}}님을 일반 사원으로 변경하시겠습니까?",
+          "deleteEmployeeTitle": "사원 정보 삭제",
+          "deleteEmployeeText": "{{n}}명의 사원 정보를 삭제하시겠습니까?",
+          "organizationChart": "조직도"
+        },
+        "toast": {
+          "updateEmployeeSuccess": "{{name}}님의 사원 정보가 수정되었습니다.",
+          "updateEmployeeFail": "{{name}}님의 사원 정보 수정이 실패하였습니다.",
+          "noDept": "소속 부서를 먼저 수정해야합니다.",
+          "deleteEmployeeSuccess": "사원 정보를 삭제하였습니다.",
+          "deleteEmployeeError": "사원 정보 삭제 중 에러가 발생하였습니다."
+        },
+        "tooltip": {
+          "updateDept": "소속 부서 수정",
+          "deleteEmployee": "사원 정보 삭제"
+        }
+      },
+      "department": {
+        "title": "부서 정보 조회",
+        "grid": {
+          "deptLevel": "순위",
+          "deptName": "부서명",
+          "deptNameEn": "부서명 (영어)",
+          "deptPhone": "전화번호",
+          "deptFax": "팩스번호"
+        },
+        "dialog": {
+          "deleteDepartmentText": "{{n}}개의 부서를 삭제하시겠습니까?"
+        },
+        "toast": {
+          "createDepartmentSuccess": "부서가 생성되었습니다.",
+          "createDepartmentFail": "부서 생성이 실패하였습니다.",
+          "checkEmployeeCheckFail": "선택된 부서 중 소속된 사원이 있는 부서가 존재하여 삭제가 불가능합니다.",
+          "updateDepartmentSuccess": "부서 정보가 수정되었습니다.",
+          "updateDepartmentFail": "부서 정보 수정이 실패하였습니다.",
+          "deleteEmployeeSuccess": "{{n}}개의 부서가 삭제되었습니다.",
+          "deleteEmployeeFail": "부서 삭제에 실패하였습니다."
+        },
+        "tooltip": {
+          "createDepartment": "부서 추가",
+          "deleteDepartment": "부서 삭제"
+        }
+      },
+      "signup-approval": {
+        "title": "회원 가입 승인",
+        "grid": {
+          "all": "전체",
+          "etc": "기타",
+          "username": "사원명",
+          "usernameEn": "사원명 (영문)",
+          "email": "이메일",
+          "phone": "전화번호",
+          "gender": "성별",
+          "1002001": "남성",
+          "1002002": "여성",
+          "birth": "생년월일",
+          "country": "국가",
+          "createDate": "계정생성일자"
+        },
+        "dialog": {
+          "signupApproval": "회원가입 승인",
+          "signupReject": "회원가입 거절",
+          "signupApprovalText": "{{n}}명의 회원가입을 승인하시겠습니까?",
+          "signupRejectText": "{{n}}명의 회원가입을 거절하시겠습니까?"
+        },
+        "toast": {
+          "signupApprovalSuccess": "{{n}}명의 회원가입이 승인되었습니다.",
+          "signupRejectSuccess": "{{n}}명의 회원가입이 거절되었습니다.",
+          "signupApprovalFail": "회원가입 승인을 실패하였습니다.",
+          "signupRejectFail": "회원가입 거절을 실패하였습니다."
+        },
+        "tooltip": {
+          "signupApproval": "회원가입 승인",
+          "signupReject": "회원가입 거절"
+        }
+      },
+      "customer": {
+        "title": "고객사 정보",
+        "grid": {
+          "all": "전체",
+          "companyName": "기관명",
+          "companyShortName": "기관약명",
+          "custCompanyType": "고객사 구분",
+          "companyType": "기관 구분",
+          "companyNo": "법인등록번호",
+          "ownerName": "대표자 성명",
+          "tel": "전화번호",
+          "email": "이메일",
+          "custStatus": "거래상태",
+          "foundingDate": "창립일",
+          "main fax number" : "팩스번호",
+          "homepage" : "홈페이지",
+          "representative position": "대표자 직책",
+          "domestic/overseas": "국내외 구분",
+          "country" : "국가",
+          "addr. (kor)" : "한글 주소",
+          "addr. (eng)" : "영문 주소",
+          "zip Code" : "우편번호",
+          "trading start date" : "거래 개시일",
+          "transaction end date" : "거래 종료일",
+          "transaction status" : "거래상태"
+        },
+        "dialog": {
+          "deleteCustomerTitle": "고객사 정보 삭제",
+          "deleteCustomerText": "{{n}}개의 고객사 정보를 삭제하시겠습니까?"
+        },
+        "toast": {
+          "createCustomerSuccess": "고객사가 추가되었습니다.",
+          "createCustomerFail": "고객사 추가를 실패하였습니다.",
+          "updateCustomerSuccess": "고객사 정보를 수정하였습니다.",
+          "updateCustomerFail": "고객사 정보 수정을 실패하였습니다.",
+          "deleteCustomerSuccess": "고객사 정보를 삭제하였습니다.",
+          "deleteCustomerError": "고객사 정보 삭제를 실패하였습니다."
+        },
+        "tooltip": {
+          "createCustomer": "고객사 추가",
+          "updateCustomerCompanyType": "고객사 구분 수정",
+          "updateCompanyType": "기관 구분 수정",
+          "updateCustomerStatus": "거래상태 수정",
+          "deleteCustomer": "고객사 정보 삭제",
+          "add":"더보기"
+        }
+      },
+      "representative": {
+        "title": "고객사 별 담당자 정보",
+        "grid": {
+          "companyName": "기관명",
+          "custEmpName": "거래처 담당자명",
+          "custEmpTel": "전화번호",
+          "custEmpFax": "팩스번호",
+          "custEmpEmail": "이메일",
+          "custEmpPosition": "직책"
+        },
+        "toast": {
+          "updateRepresentativeSuccess": "고객사 담당자 정보가 수정되었습니다.",
+          "updateRepresentativeFail": "고객사 담당자 정보 수정을 실패였습니다."
+        }
+      },
+      "usage": {
+        "title": "사용량 조회",
+        "serviceUsage": "서비스 이용 내역",
+        "expectedPaymentAmount": "{{m}}월 달 예상 결제 금액",
+        "VATIncluded": "부가세 포함",
+        "table": {
+          "companyRegistrationNumber": "사업자 등록번호",
+          "tel": "대표 전화번호",
+          "owner": "대표자",
+          "email": "대표 이메일",
+          "accountNum": "사용 계정 개수",
+          "noData": "없음"
+        }
+      }
+    }
+  }
+}

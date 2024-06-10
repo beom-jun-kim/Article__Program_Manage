@@ -1,0 +1,201 @@
+{
+  "components": {
+    "header": {
+      "menu": {
+        "manage": "Manage",
+        "nawriter": "NAWriter",
+        "myNews": "My News",
+        "setting": "Setting"
+      },
+      "lngBtnText": "A",
+      "lngBtnTooltip": "Change Language",
+      "themeBtnTooltip": "Theme",
+      "logoutBtnTooltip": "Logout"
+    },
+    "grid": {
+      "noData": "No Data.",
+      "error": "Server Error",
+      "save": "Save",
+      "close": "Close",
+      "filter": "Filter",
+      "reset": "Reset Filter",
+      "search": "Search"
+    },
+    "pagination": {
+      "items": "Items",
+      "of": "{{b}} of {{a}}"
+    },
+    "dialog": {
+      "confirm": "Confirm",
+      "close": "Close",
+      "cancel": "Cancel"
+    },
+    "toast": {
+      "error": "Server Error"
+    }
+  },
+  "pages": {
+    "manage": {
+      "employee": {
+        "title": "Employee Information Inquiry",
+        "grid": {
+          "all": "All",
+          "etc": "Etc",
+          "empName": "Employee Name (KR)",
+          "empNameEn": "Employee Name (EN)",
+          "empId": "Employee ID",
+          "email": "Email",
+          "phone": "Phone",
+          "admin": "Admin",
+          "gender": "Gender",
+          "birth": "Birth",
+          "dept": "Department",
+          "country": "Country",
+          "1002001": "Male",
+          "1002002": "Female"
+        },
+        "dialog": {
+          "updateEmployeeTitle": "Edit employee information",
+          "adminText1": "Do you want to make {{name}} an administrator?",
+          "adminText2": "Would you like to change {{name}} to a regular employee?",
+          "deleteEmployeeTitle": "Delete employee information",
+          "deleteEmployeeText": "Do you want to delete information for {{n}} employees?",
+          "organizationChart": "Organization Chart"
+        },
+        "toast": {
+          "updateEmployeeSuccess": "{{name}}'s employee information has been modified.",
+          "updateEmployeeFail": "Editing {{name}}'s employee information failed.",
+          "noDept": "You need to edit your department first.",
+          "deleteEmployeeSuccess": "Employee information has been deleted.",
+          "deleteEmployeeError": "An error occurred while deleting employee information."
+        },
+        "tooltip": {
+          "updateDept": "Edit department",
+          "deleteEmployee": "Delete employee information"
+        }
+      },
+      "department": {
+        "title": "Department Information Inquiry",
+        "grid": {
+          "deptLevel": "Level",
+          "deptName": "Department Name (KR)",
+          "deptNameEn": "Department Name (EN)",
+          "deptPhone": "Phone Number",
+          "deptFax": "Fax Number"
+        },
+        "dialog": {
+          "deleteDepartmentText": "{{n}}개의 부서를 삭제하시겠습니까?"
+        },
+        "toast": {
+          "createDepartmentSuccess": "The department has been created.",
+          "createDepartmentFail": "Department creation failed.",
+          "checkEmployeeCheckFail": "Among the selected departments, there is a department with affiliated employees, so deletion is not possible.",
+          "updateDepartmentSuccess": "Department information has been modified.",
+          "updateDepartmentFail": "Editing department information failed.",
+          "deleteEmployeeSuccess": "{{n}} departments were eliminated.",
+          "deleteEmployeeFail": "Failed to delete department."
+        },
+        "tooltip": {
+          "createDepartment": "Create Department",
+          "deleteDepartment": "Delete Department"
+        }
+      },
+      "signup-approval": {
+        "title": "Sign-Up Approval",
+        "grid": {
+          "all": "All",
+          "etc": "Etc",
+          "username": "Employee Name (KR)",
+          "usernameEn": "Employee Name (EN)",
+          "email": "Email",
+          "phone": "Phone",
+          "gender": "Gender",
+          "1002001": "Male",
+          "1002002": "Female",
+          "birth": "Birth",
+          "country": "Country",
+          "createDate": "Created At"
+        },
+        "dialog": {
+          "signupApproval": "Sign-Up Approval",
+          "signupReject": "Sign-Up Reject",
+          "signupApprovalText": "Would you like to approve {{n}} users?",
+          "signupRejectText": "Would you like to reject {{n}} users?"
+        },
+        "toast": {
+          "signupApprovalSuccess": "{{n}} users have been approved.",
+          "signupRejectSuccess": "{{n}} users have been rejected.",
+          "signupApprovalFail": "Sign-Up approval failed.",
+          "signupRejectFail": "Sign-Up reject failed."
+        },
+        "tooltip": {
+          "signupApproval": "Sign-Up Approval",
+          "signupReject": "Sign-Up Reject"
+        }
+      },
+      "customer": {
+        "title": "Customer Company Information",
+        "grid": {
+          "all": "All",
+          "companyName": "Company Name",
+          "companyShortName": "Company Short Name",
+          "custCompanyType": "Customer Company Type",
+          "companyType": "Company Type",
+          "companyNo": "Company No.",
+          "ownerName": "Owner",
+          "tel": "Tel",
+          "email": "Email",
+          "custStatus": "Customer Status"
+        },
+        "dialog": {
+          "deleteCustomerTitle": "Delete Customer Information",
+          "deleteCustomerText": "Do you want to delete {{n}} customer information?"
+        },
+        "toast": {
+          "createCustomerSuccess": "Customer has been added.",
+          "createCustomerFail": "Failed to add customer.",
+          "updateCustomerSuccess": "Customer information has been modified.",
+          "updateCustomerFail": "Failed to edit customer information.",
+          "deleteCustomerSuccess": "Customer information has been deleted.",
+          "deleteCustomerError": "Failed to delete customer information."
+        },
+        "tooltip": {
+          "createCustomer": "Add Customer",
+          "updateCustomerCompanyType": "Edit Customer Company Type",
+          "updateCompanyType": "Edit Company Type",
+          "updateCustomerStatus": "Edit Customer Status",
+          "deleteCustomer": "Delete Customer Information"
+        }
+      },
+      "representative": {
+        "title": "Customer Company Representative Information",
+        "grid": {
+          "companyName": "Company Name",
+          "custEmpName": "Customer Representative Name",
+          "custEmpTel": "Tel",
+          "custEmpFax": "Fax",
+          "custEmpEmail": "Email",
+          "custEmpPosition": "Position"
+        },
+        "toast": {
+          "updateRepresentativeSuccess": "Customer contact information has been modified.",
+          "updateRepresentativeFail": "Editing customer representative information failed."
+        }
+      },
+      "usage": {
+        "title": "Usage Inquiry",
+        "serviceUsage": "Service Usage History",
+        "expectedPaymentAmount": "Estimated payment amount for month {{m}}",
+        "VATIncluded": "VAT included",
+        "table": {
+          "companyRegistrationNumber": "Company Registration Number",
+          "tel": "Representative Tel",
+          "owner": "Owner",
+          "email": "Representative Email",
+          "accountNum": "Employee Count",
+          "noData": "No Data"
+        }
+      }
+    }
+  }
+}

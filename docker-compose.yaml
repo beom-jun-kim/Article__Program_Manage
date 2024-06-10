@@ -1,0 +1,11 @@
+services:
+  app:
+    build:
+      context: .
+      no_cache: true
+    image: nawriter/frontend:${VERSION:-latest}
+    pull_policy: build
+    container_name: nawriter-fe
+    ports:
+    - ${PORT:-3030}:80/tcp
+    restart: always
