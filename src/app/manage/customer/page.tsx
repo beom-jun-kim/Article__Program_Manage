@@ -91,7 +91,7 @@ const CustomerPage = () => {
       ...prev,
       data: {
         ...prev.data!,
-        [key]: value.toString(),
+        [key]: value,
       },
     }));
   };
@@ -138,7 +138,7 @@ const CustomerPage = () => {
 
   const searchTimeoutRef = useRef<any>(undefined);
 
-  const { data, status, refetch, minor, createCustomer, updateCustomer, deleteCustomer } = useCustomerData({
+  const { data, status, refetch, minor, country, createCustomer, updateCustomer, deleteCustomer } = useCustomerData({
     lng,
     pagination,
     sortColumns,
@@ -148,6 +148,11 @@ const CustomerPage = () => {
   const statusOptions = minor?.custStatus.map(({ seq, remark }) => ({ value: seq, label: remark })) || [];
   const companyTypeOptions = minor?.companyType.map(({ seq, remark }) => ({ value: seq, label: remark })) || [];
   const custCompanyTypeOptions = minor?.custCompanyType.map(({ seq, remark }) => ({ value: seq, label: remark })) || [];
+  const domForOptions = minor?.domFor.map(({ seq, remark }) => ({ value: seq, label: remark })) || [];
+  const countryNameOptions = country?.map(({ countrySeq, countryName }) => ({
+    value: countrySeq,
+    label: countryName
+  })) || [];  
 
   const handleUpdateCustomer = useCallback(
     async (data: CustomerData) => {
@@ -363,7 +368,7 @@ const CustomerPage = () => {
       },
       {
         key: 'custStatusSeq',
-        name: t('pages.manage.customer.grid.custStatus'),
+        name: t('pages.manage.customer.grid.transaction status'),
         minWidth: 200,
         renderCell: ({ row }) => {
           const handleClick = () =>
@@ -630,13 +635,13 @@ const CustomerPage = () => {
             />
             <FormControl style={{ width: '100%' }}>
               <InputLabel size="small" id="cust-status-seq">
-                {t('pages.manage.customer.grid.custStatus')}
+                {t('pages.manage.customer.grid.transaction status')}
               </InputLabel>
               <Select
                 id="cust-status-seq"
                 size="small"
                 name="custStatusSeq"
-                label={t('pages.manage.customer.grid.custStatus')}
+                label={t('pages.manage.customer.grid.transaction status')}
                 defaultValue={0}
                 error={newCustomerDialog.error.custStatusSeq}
                 onChange={() =>
@@ -777,7 +782,7 @@ const CustomerPage = () => {
         <DialogTitle>{t('components.dialog.Institution information registration')}</DialogTitle>
         <DialogContent>
           {detailDialog.data && Object.keys(detailDialog.data)
-          .filter((_, index) => ![0, 3, 4, 5, 6, 11].includes(index))
+          .filter((_, index) => ![0,3,4,5,6,11,12,13,19,20].includes(index))
           .map((key) => (
             <TextField
               key={key}
@@ -786,13 +791,43 @@ const CustomerPage = () => {
               onChange={(e) => handleDetailChange(key as keyof CustomerData, e.target.value)}
               fullWidth
               margin="normal"
+              disabled={key === 'companyShortName'}
             />
           ))}
+          <FormControl fullWidth margin="normal">
+            <InputLabel>{t('pages.manage.customer.grid.domestic/overseas')}</InputLabel>
+            <Select
+              value={detailDialog.data?.domForSeq || ''}
+              onChange={(e) => handleDetailChange('domForSeq', e.target.value)}
+              label={t('pages.manage.customer.grid.domestic/overseas')}
+            >
+              {domForOptions.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <FormControl fullWidth margin="normal">
+            <InputLabel>{t('pages.manage.customer.grid.country')}</InputLabel>
+            <Select
+              value={detailDialog.data?.countrySeq || ''}
+              onChange={(e) => handleDetailChange('countrySeq', e.target.value)}
+              label={t('pages.manage.customer.grid.country')}
+            >
+              {countryNameOptions.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
           <FormControl fullWidth margin="normal">
             <InputLabel>{t('pages.manage.customer.grid.custCompanyType')}</InputLabel>
             <Select
               value={detailDialog.data?.custCompanyTypeSeq || ''}
               onChange={(e) => handleDetailChange('custCompanyTypeSeq', e.target.value)}
+              label={t('pages.manage.customer.grid.custCompanyType')}
             >
               {custCompanyTypeOptions.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
@@ -806,6 +841,7 @@ const CustomerPage = () => {
             <Select
               value={detailDialog.data?.companyTypeSeq || ''}
               onChange={(e) => handleDetailChange('companyTypeSeq', e.target.value)}
+              label={t('pages.manage.customer.grid.companyType')}
             >
               {companyTypeOptions.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
@@ -819,6 +855,7 @@ const CustomerPage = () => {
             <Select
               value={detailDialog.data?.custStatusSeq || ''}
               onChange={(e) => handleDetailChange('custStatusSeq', e.target.value)}
+              label={t('pages.manage.customer.grid.transaction status')}
             >
               {statusOptions.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
