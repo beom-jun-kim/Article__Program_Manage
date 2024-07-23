@@ -27,24 +27,32 @@ export interface CustomerData {
   custStatusSeq?: number;
   [key: string]: any;
 
-  // 더보기 데이터
-  // foundingDate?: string;
-  // faxNumber?: string;
-  // website?: string;
-  // representativePosition?: string;
-  // domesticOrForeign?: string;
-  // country?: string;
-  // koreanAddress?: string;
-  // englishAddress?: string;
-  // postalCode?: string;
-  // transactionStartDate?: string;
-  // transactionEndDate?: string;
+  // 더보기
+  countryName?: string;
+  countrySeq?: number;
+  domFor?: string;
+  domForSeq?: number;
+  engAddr?: string;
+  fax?: string;
+  homePage?: string;
+  korAddr?: string;
+  ownerJpName?: string;
+  setUpDate?: string;
+  transCloseDate?: string;
+  transOpenDate?: string;
+  zipCode?: string;
 }
 
 export interface CustomerMinorData {
   custCompanyType: { seq: number; remark: string }[];
   companyType: { seq: number; remark: string }[];
   custStatus: { seq: number; remark: string }[];
+  domFor: { seq: number; remark: string }[];
+}
+
+export interface CountryData {
+  countrySeq: number;
+  countryName: string;
 }
 
 const useCustomerData = ({ lng, pagination, filter: customerFilter, sortColumns }: UseCustomerDataProps) => {
@@ -72,11 +80,16 @@ const useCustomerData = ({ lng, pagination, filter: customerFilter, sortColumns 
     queryFn: () => axios.get<CustomerMinorData>('/manage/api/v1/customer/minor').then(({ data }) => data)
   });
 
+  const countryQuery = useQuery({
+    queryKey: ['customer', 'country'],
+    queryFn: () => axios.get<CountryData[]>('/manage/api/v1/customer/country').then(({ data }) => data)
+  });
+
   const status = useMemo((): FetchStatus => {
-    if (isFetching || isRefetching || minorQuery.isFetching) return 'fetching';
-    if (isError || isRefetchError || minorQuery.isError) return 'error';
+    if (isFetching || isRefetching || minorQuery.isFetching || countryQuery.isFetching) return 'fetching';
+    if (isError || isRefetchError || minorQuery.isError || countryQuery.isError) return 'error';
     return 'success';
-  }, [isFetching, isRefetching, isError, isRefetchError, minorQuery.isFetching, minorQuery.isError]);
+  }, [isFetching, isRefetching, isError, isRefetchError, minorQuery.isFetching, minorQuery.isError,countryQuery.isFetching, countryQuery.isError]);
 
   const createCustomer = async (customer: CustomerData) => {
     try {
@@ -118,8 +131,9 @@ const useCustomerData = ({ lng, pagination, filter: customerFilter, sortColumns 
       params: { seq: seqArr }
     });
   };
-  console.log("xxxxxxxxxxxxxxdataxxxxxxxxxxxxx",data);
-  return { data, status, refetch, minor: minorQuery.data, createCustomer, deleteCustomer, updateCustomer };
+  console.log("xxxxxxxxxxxxxxxxcountryQuery.dataxxxxxxxxxxxxx", countryQuery.data);
+  console.log("xxxxxxxxxxxxxxxxminorQuery.dataxxxxxxxxxxxx", minorQuery.data);
+  return { data, status, refetch, minor: minorQuery.data, country:countryQuery.data, createCustomer, deleteCustomer, updateCustomer };
 };
 
 export default useCustomerData;
